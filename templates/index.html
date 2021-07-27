@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}InstaPred{% endblock %}
+
+{% block content %}
+    <main class="px-3 text-center">
+    <h3>Predict the popularity of your Instagram Post</h3>
+    <p class="lead mb-4">More Likes. More Followers. More Fame.</p>
+
+    <div class="drop-zone">
+        <span class="drop-zone__prompt">Drop your picture here</span>
+        <input type="file" name="myFile" class="drop-zone__input">
+        <div class="drop-zone__image">
+
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress mb-4">
+        <div class="progress-bar rainbow-bg" id="imageProcessingProgressBar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"> <span class="sr-only">not started</span> </div>
+    </div>
+
+    <div class="mb-4 processingErrorMessage alert alert-danger " role="alert" id= "processingErrorMessage">
+        During processing an error ocurred, please try again.
+    </div>
+
+    <div class="container-fluid mb-4">
+        <div class="row">
+            <div class="col-4 my-auto">
+                <div class="row">
+                    <div class="col-4 my-auto circle">
+                        <b>1</b>
+                    </div>
+                    <div class="col-8 text-start">
+                        Upload your picture
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-auto">
+                <div class="row">
+                    <div class="col-4 my-auto circle">
+                        <b>2</b>
+                    </div>
+                    <div class="col-8 text-start">
+                        Our AI predicts the number of likes
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 my-auto">
+                <div class="row">
+                    <div class="col-4 my-auto circle">
+                       <b>3</b>
+                    </div>
+                    <div class="col-8 text-start">
+                        Choose most popular picture
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resultsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="resultsModalLabel">Results</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Please sign in to use this functionality.
+            </div>
+            <div class="modal-footer">
+              {% if session.user  %}
+                <a type="button" class="btn btn-secondary rainbow-bg" href="{{ url_for('gallery') }}">Go to Gallery</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              {% else %}
+                <a type="button" class="btn btn-outline-secondary" href="{{ url_for('login') }}">Login</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+    </div>
+
+    </main>
+{% endblock %}

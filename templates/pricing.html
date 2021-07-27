@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}InstaPred - Pricing{% endblock %}
+
+{% block content %}
+    <main class="text-center">
+        <div class="py-5">
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm h-100">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Free</h4>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h1 class="card-title pricing-card-title">€ 0</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Your first upload is free.</li>
+                </ul>
+                <a class="w-100 btn btn-lg btn-outline-dark mt-auto" href="{{ url_for('signup') }}">Sign up for free</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm h-100">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Pro</h4>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h1 class="card-title pricing-card-title">€ 1</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>For every picture you upload.</li>
+                </ul>
+                <a class="w-100 btn btn-lg btn-dark mt-auto" href="{{ url_for('signup') }}">Get started</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-dark h-100">
+              <div class="card-header py-3 text-white bg-dark border-primary">
+                <h4 class="my-0 fw-normal">Enterprise</h4>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h1 class="card-title pricing-card-title">€ 15<small class="text-muted fw-light">/mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>For unlimited uploads.</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-dark mt-auto" onclick="location.href='mailto:Fabian.Karst@alumni.esade.edu'">Contact us</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </main>
+{% endblock %}

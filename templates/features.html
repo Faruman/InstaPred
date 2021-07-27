@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}InstaPred - Features{% endblock %}
+
+{% block content %}
+    <main class="text-center">
+
+      <div class="album py-5">
+        <div class="container">
+
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm h-100">
+                <img class="card-img-top" width="100%" height="225" src="{{url_for('static', filename='pictures/artificialInteligence.jpg')}}">
+                <div class="card-body d-flex flex-column">
+                  <h2>Our AI</h2>
+                  <p class="card-text">With our unique database and state-of-the-Art algorithms, we are able to accurately predict the number of likes of any Instagram post.</p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#aiModal">Info</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm h-100">
+                <img class="card-img-top" width="100%" height="225" src="{{url_for('static', filename='pictures/mission.jpg')}}">
+                <div class="card-body d-flex flex-column">
+                  <h2>Our Mission</h2>
+                  <p class="card-text">We want to enable everyone to post great content. Being successful on Instagram never has been easier.</p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#missionModal">Info</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm h-100">
+                <img class="card-img-top" width="100%" height="225" src="{{url_for('static', filename='pictures/team.jpg')}}">
+                <div class="card-body d-flex flex-column">
+                  <h2>Our Team</h2>
+                  <p class="card-text">Being a diverse Team of people with a strong Data Science, Web Development and Business focus we believe to stay one step ahead of competitors.</p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#teamModal">Info</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modals -->
+      <div class="modal fade" id="aiModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="aiModalLabel">Our AI</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <b>So, this is how the magic works:</b> <br> Using dedicated scraping scripts we gather massive amounts of Instagram pictures as well as information related to the post and store them in our designated database in the cloud. Now comes the interesting part: Using advanced machine learning technique we train a Neural Network that finds patterns in pictures that correspond to a high number of likes. When uploading a picture, the trained model screens your picture and looks for the mentioned patterns. Doing this we are able to accurately predict how many likes your post will get.
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn btn-outline-secondary" href="https://github.com/Faruman/InstaPred" target="_blank">to Github</a>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="missionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="missionModalLabel">Our Mission</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <b>Power to the people:</b> <br> To be successful on Instagram you need expensive content production, know the right people and sell yourself for cheap likes and followers? Wrong! With us you can post like an Influencer without the costs and downsides. We want to eliminate platform privilege and enable everyone to post great content. Being successful on Instagram never has been easier! Join us now!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="teamModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="teamModalLabel">Our Team</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="card mt-2">
+                  <div class="card-horizontal">
+                      <div class="img-square-wrapper">
+                          <img class="rounded-circle team-card-image" src="{{url_for('static', filename='pictures/jessicaKorder.jpg')}}" alt="Jessica Korder">
+                      </div>
+                      <div class="card-body">
+                          <h4 class="card-title">Jessica Korder</h4>
+                          <p class="card-text">Chief Executive Officer</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="card mt-2">
+                  <div class="card-horizontal">
+                      <div class="img-square-wrapper">
+                          <img class="rounded-circle team-card-image" src="{{url_for('static', filename='pictures/mathiasLeys.jpg')}}" alt="Mathias Leys">
+                      </div>
+                      <div class="card-body">
+                          <h4 class="card-title">Mathias Leys</h4>
+                          <p class="card-text">Chief Operating Officer</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="card mt-2">
+                  <div class="card-horizontal">
+                      <div class="img-square-wrapper">
+                          <img class="rounded-circle team-card-image" src="{{url_for('static', filename='pictures/yukiZipse.jpg')}}" alt="Yuki Zipse">
+                      </div>
+                      <div class="card-body">
+                          <h4 class="card-title">Yuki Zipse</h4>
+                          <p class="card-text">Chief Marketing Officer</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="card mt-2">
+                  <div class="card-horizontal">
+                      <div class="img-square-wrapper">
+                          <img class="rounded-circle team-card-image" src="{{url_for('static', filename='pictures/fabianKarst.jpg')}}" alt="Fabian Karst">
+                      </div>
+                      <div class="card-body">
+                          <h4 class="card-title">Fabian Karst</h4>
+                          <p class="card-text">Chief Technology Officer</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+{% endblock %}

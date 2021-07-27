@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}InstaPred - Sign Up{% endblock %}
+
+{% block content %}
+    <main class="form-signup">
+      <h1 class="h3 mb-3 fw-normal">Please register</h1>
+
+      <form action="" method="post">
+
+        {% if message  %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <h4 class="mb-3">Personal Infomation</h4>
+
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              {% if user %}
+                {% if user['firstname'] %}
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="{{user['firstname']}}" required>
+                {% else %}
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="" required>
+                {% endif %}
+              {% else %}
+              <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="" required>
+              {% endif %}
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              {% if user %}
+                {% if user['lastname'] %}
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="" value="{{user['lastname']}}" required>
+                {% else %}
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="" required>
+                {% endif %}
+              {% else %}
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="" value="" required>
+              {% endif %}
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              {% if user %}
+                {% if user['email'] %}
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="{{user['email']}}" required>
+                {% else %}
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="" required>
+                {% endif %}
+              {% else %}
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="" required>
+              {% endif %}
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Choose Plan</h4>
+          <div class="form-check">
+            {% if user %}
+              {% if user["plan"] == "enterprise" %}
+                <input class="form-check-input" type="radio" name="plan" id="radioEnterprise" value="enterprise" checked>
+              {% else %}
+                <input class="form-check-input" type="radio" name="plan" id="radioEnterprise" value="enterprise">
+              {% endif %}
+            {% else %}
+              <input class="form-check-input" type="radio" name="plan" id="radioEnterprise" value="enterprise">
+            {% endif %}
+            <label class="form-check-label" for="radioEnterprise">Enterprise</label>
+          </div>
+          <div class="form-check">
+            {% if user %}
+              {% if user["plan"] == "personal" %}
+                <input class="form-check-input" type="radio" name="plan" id="radioPersonal" value="personal" checked>
+              {% else %}
+                <input class="form-check-input" type="radio" name="plan" id="radioPersonal" value="personal">
+              {% endif %}
+            {% else %}
+              <input class="form-check-input" type="radio" name="plan" id="radioPersonal" value="personal" checked>
+            {% endif %}
+            <label class="form-check-label" for="radioPersonal">Personal</label>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Credentials</h4>
+
+          <div class="row g-3">
+            <div class="col-12">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+
+              <div class="col-12">
+                <label for="passwordRepeat" class="form-label">Repeat password</label>
+                <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" required>
+              </div>
+          </div>
+
+
+          <button class="btn btn-lg btn-secondary fw-bold border-dark bg-dark w-100 btn-signup" type="submit">Sign up</button>
+        </form>
+    </main>
+{% endblock %}

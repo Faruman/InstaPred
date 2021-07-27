@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}InstaPred - Features{% endblock %}
+
+{% block content %}
+    <h2> Your Gallery </h2>
+    <main class="text-center">
+      <div class="album py-5">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+          {% for image in images %}
+            <div class="col gallery-col">
+              <div class="card shadow-sm h-100 bg-dark text-white">
+                <img class="card-img-top" width="100%" height="225" src='{{ image["image"] }}'>
+                <div class="card-body d-flex flex-column">
+                  <h3>{{ image["numLikes"] }}</h3>
+                  <p class="card-text">
+                  {% for tag in image["proposedTags"] %}
+                    {{ tag }}
+                  {% endfor %}
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+{% endblock %}

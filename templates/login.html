@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}InstaPred - Login{% endblock %}
+
+{% block content %}
+    <main class="form-signin text-center">
+      <form action="" method="post">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        {% if message  %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <div class="form-floating">
+          <input type="email" name="email" class="form-control" id="inputEmail" placeholder="name@example.com" required>
+          <label for="inputEmail">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" name="rememberMe" id= "inputRemember" value="True"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-secondary fw-bold border-dark bg-dark w-100" type="submit">Sign in</button>
+      </form>
+      <div class="mt-3">
+        <a class="nameLink" href= "{{ url_for('signup') }}">Signup for InstaPred</a>
+      </div>
+    </main>
+{% endblock %}
